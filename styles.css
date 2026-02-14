@@ -1,0 +1,192 @@
+/* ===================================
+   Variables CSS y Reset (Ajustadas a FinTech)
+   =================================== */
+
+:root {
+  /* Paleta Bancaria: Azules profundos y Verdes de éxito */
+  --color-primary: #1e3a8a;    /* Navy Blue (Confianza) */
+  --color-secondary: #0ea5e9;  /* Sky Blue */
+  --color-success: #059669;    /* Emerald (Crecimiento) */
+  --color-warning: #d97706;    /* Amber */
+  --color-danger: #dc2626;     /* Red (Riesgo) */
+  --color-dark: #0f172a;       /* Slate 900 */
+  --color-gray: #64748b;       /* Slate 500 */
+  --color-light: #f1f5f9;      /* Slate 100 */
+  --color-white: #ffffff;
+
+  /* Semántica de Riesgo Financiero */
+  --priority-high: #dc2626;    /* Riesgo Alto */
+  --priority-medium: #d97706;  /* Riesgo Medio */
+  --priority-low: #059669;     /* Riesgo Bajo */
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Gradiente más sobrio y profesional */
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  color: var(--color-dark);
+}
+
+/* ===================================
+   Header (Dashboard Style)
+   =================================== */
+
+.header {
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 4px solid var(--color-secondary);
+}
+
+.header h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary);
+}
+
+.subtitle {
+  color: var(--color-gray);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.stat strong {
+  color: var(--color-success) !important; /* Resalta los números financieros */
+  font-family: 'Courier New', monospace; /* Estilo ticker financiero */
+}
+
+/* ===================================
+   Formularios y Secciones
+   =================================== */
+
+.form-section, .filters-section, .items-section, .detailed-stats {
+  background: var(--color-white);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2rem;
+}
+
+/* Ajuste específico para Inputs de Montos */
+input[type="number"] {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  color: var(--color-primary);
+}
+
+/* ===================================
+   Cards de Activos Financieros
+   =================================== */
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-item {
+  background: var(--color-white);
+  border: 1px solid var(--color-light);
+  border-left: 6px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.task-item:hover {
+  transform: scale(1.01);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-secondary);
+}
+
+/* Estilos de Riesgo (Bordes dinámicos) */
+.priority-high { border-left-color: var(--priority-high) !important; }
+.priority-medium { border-left-color: var(--priority-medium) !important; }
+.priority-low { border-left-color: var(--priority-low) !important; }
+
+/* Badge de Categoría (Tipo de Producto) */
+.badge-category {
+  background: var(--color-light);
+  color: var(--color-primary);
+  border: 1px solid var(--color-secondary);
+  font-weight: 600;
+}
+
+/* ===================================
+   Botones (Look & Feel Moderno)
+   =================================== */
+
+.btn {
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.btn-primary:hover {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+/* ===================================
+   Stats Cards (Analítica)
+   =================================== */
+
+.stat-card {
+  background: var(--color-light);
+  border: 1px solid #e2e8f0;
+  transition: background 0.2s;
+}
+
+.stat-card:hover {
+  background: var(--color-white);
+}
+
+.stat-card p {
+  color: var(--color-primary);
+  font-family: 'Courier New', monospace;
+}
+
+/* ===================================
+   Responsive
+   =================================== */
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

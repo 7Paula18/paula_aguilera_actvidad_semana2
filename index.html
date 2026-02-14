@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinTech Manager | Gestión de Activos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    
+    <header class="header">
+      <h1>💳 FinTech Asset Manager</h1>
+      <p class="subtitle">Gestión de Portafolio y Servicios Financieros</p>
+      <div class="stats-summary" id="stats-summary">
+        <span class="stat">Total Activos: <strong id="stat-total">0</strong></span>
+        <span class="stat">Operativos: <strong id="stat-active">0</strong></span>
+        <span class="stat">En Pausa: <strong id="stat-inactive">0</strong></span>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <h2 id="form-title">➕ Registrar Nuevo Activo</h2>
+      <form id="item-form" class="item-form">
+        <input type="hidden" id="item-id" value="">
+
+        <div class="form-group">
+          <label for="item-name">Nombre del Activo/Producto *</label>
+          <input
+            type="text"
+            id="item-name"
+            placeholder="Eje: Bitcoin, Préstamo Personal, Fondo Indexado"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="item-description">Notas de la Operación</label>
+          <textarea
+            id="item-description"
+            rows="3"
+            placeholder="Detalles de la transacción o términos del servicio"
+          ></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="item-category">Tipo de Producto</label>
+            <select id="item-category">
+              <option value="crypto">🪙 Criptoactivo</option>
+              <option value="stock">📈 Acción / ETF</option>
+              <option value="loan">🏦 Préstamo / Crédito</option>
+              <option value="saving">💰 Cuenta de Ahorro</option>
+              <option value="other">📑 Otro Instrumento</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="item-priority">Nivel de Riesgo</label>
+            <select id="item-priority">
+              <option value="low">🟢 Bajo (Conservador)</option>
+              <option value="medium" selected>🟡 Medio (Moderado)</option>
+              <option value="high">🔴 Alto (Especulativo)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="item-amount">Monto / Inversión</label>
+            <input type="number" id="item-amount" placeholder="0.00" step="0.01">
+          </div>
+          <div class="form-group">
+            <label for="item-yield">Rendimiento Estimado (%)</label>
+            <input type="number" id="item-yield" placeholder="Eje: 5" step="0.1">
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="submit-btn">
+            Registrar Activo
+          </button>
+          <button type="button" class="btn btn-secondary" id="cancel-btn" style="display: none;">
+            Cancelar Edición
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section class="filters-section">
+      <div class="filters">
+        <div class="filter-group">
+          <label for="filter-status">Estado:</label>
+          <select id="filter-status">
+            <option value="all">Todos</option>
+            <option value="active">Operativos</option>
+            <option value="inactive">Liquidados/Pausados</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-category">Tipo:</label>
+          <select id="filter-category">
+            <option value="all">Todas las categorías</option>
+            <option value="crypto">Criptoactivos</option>
+            <option value="stock">Acciones/ETFs</option>
+            <option value="loan">Préstamos</option>
+            <option value="saving">Ahorros</option>
+            <option value="other">Otros</option>
+          </select>
+        </div>
+
+        <div class="filter-group search-group">
+          <label for="search-input">Buscar:</label>
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Buscar por nombre o ID..."
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="items-section">
+      <div class="items-header">
+        <h2>📝 Portafolio de Inversiones</h2>
+        <button class="btn btn-outline" id="clear-inactive">
+          🗑️ Eliminar Histórico Inactivo
+        </button>
+      </div>
+
+      <div id="item-list" class="item-list">
+        </div>
+
+      <div id="empty-state" class="empty-state">
+        <p>📭 No hay registros financieros</p>
+        <p class="empty-state-hint">Comienza agregando un activo o servicio en el formulario.</p>
+      </div>
+    </section>
+
+    <section class="detailed-stats">
+      <h3>📊 Análisis de Riesgo y Distribución</h3>
+      <div id="stats-details" class="stats-grid">
+        </div>
+    </section>
+  </div>
+
+  <script src="./starter/script.js"></script>
+</body>
+</html>
